@@ -1,4 +1,3 @@
-import { CredentialResponse } from "@react-oauth/google";
 import { AuthLoginParams } from "./AuthLoginParams";
 import { AuthRegistrationParams } from "./AuthRegistrationParams";
 import { AuthTokenResponse } from "./AuthTokenResponse";

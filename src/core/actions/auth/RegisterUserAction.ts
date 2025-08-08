@@ -13,6 +13,10 @@ export class RegisterUserAction implements Action<RegisterUserActionParams, Auth
     private readonly authService: AuthService
   ) { }
   execute(params: RegisterUserActionParams): Promise<AuthTokenResponse> {
-    return this.authService.register(params);
+    return this.authService.register({
+      email: params.email,
+      password: params.password,
+      name: ""
+    });
   }
 }
