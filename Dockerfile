@@ -1,34 +1,39 @@
-# Stage 1: Build con pnpm
+# Etapa 1: build
 FROM node:18-alpine AS builder
+
+# Habilitamos las features necesarias para pnpm
+RUN apk add --no-cache libc6-compat
+
 WORKDIR /app
 
-# Instalar pnpm globalmente
+# Instalamos pnpm
 RUN npm install -g pnpm
 
-# Copiamos manifiestos para cachear instalación
+# Copiamos solo lo necesario para instalar dependencias
 COPY package.json pnpm-lock.yaml ./
 
-# Instalamos dependencias antes de copiar todo para aprovechar cacheo
+# Instalamos dependencias (sin dev)
 RUN pnpm install --frozen-lockfile
 
-# Copiamos el resto del código
+# Copiamos el resto del proyecto
 COPY . .
 
-# Generamos build estático
-RUN pnpm run build
+# Generamos el build de Next.js
+RUN pnpm build
 
-# Stage 2: Servir contenido estático con Nginx
-FROM nginx:stable-alpine
+# Etapa 2: imagen final liviana
+FROM node:18-alpine AS runner
 
-# Eliminamos config default de Nginx
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Config custom de nginx
-COPY nginx.conf /etc/nginx/conf.d/
+# Instalamos solo runtime deps
+RUN npm install -g pnpm
 
-# Copiamos contenido exportado (estático)
-COPY --from=builder /app/out /usr/share/nginx/html
+COPY --from=builder /app ./
 
-EXPOSE 80
+# Si tu app requiere, seteá variables de entorno acá (o usalas desde fuera con docker run -e)
+ENV NODE_ENV=production
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["pnpm", "start"]
