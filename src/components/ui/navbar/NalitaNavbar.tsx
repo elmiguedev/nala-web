@@ -1,20 +1,18 @@
 'use client'
 
 import useLogout from "@/hooks/domain/auth/useLogout";
-import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-interface NalitaNavbarProps {
-
-}
-
-export default function NalitaNavbar(props: NalitaNavbarProps) {
+export default function NalitaNavbar() {
   const { logout } = useLogout();
   const router = useRouter();
+  const [isActive, setIsActive] = useState(false);
+
   const handleLogout = async () => {
     await logout();
     router.push("/login");
-  }
+  };
 
   return (
     <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -26,19 +24,31 @@ export default function NalitaNavbar(props: NalitaNavbarProps) {
               Nalita
             </span>
           </a>
-          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
+
+          {/* Hamburguesa con toggle */}
+          <a
+            role="button"
+            className={`navbar-burger ${isActive ? "is-active" : ""}`}
+            aria-label="menu"
+            aria-expanded={isActive}
+            onClick={() => setIsActive(!isActive)}
+            style={{ color: "white" }}
+          >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <a onClick={handleLogout} className="button  is-outlined">
-                <strong>Logout</strong>
-              </a>
+
+        {/* Menú colapsable */}
+        <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                <a onClick={handleLogout} className="button is-outlined">
+                  <strong>Logout</strong>
+                </a>
+              </div>
             </div>
           </div>
         </div>

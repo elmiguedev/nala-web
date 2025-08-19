@@ -1,5 +1,5 @@
 import Image from "next/image";
-import googleIcon from "./svg/google-color.svg";
+import googleIcon from "./svg/google-white.svg";
 
 export default function GoogleIcon() {
   return <Image

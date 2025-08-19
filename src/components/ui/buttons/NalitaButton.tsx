@@ -1,7 +1,6 @@
 'use client';
 
 import { CSSProperties } from "react";
-import { sizes, variants } from "../utils/BulmaUtils";
 
 export interface NalitaButtonProps {
   variant?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'link' | 'dark' | 'light';
@@ -16,8 +15,28 @@ export interface NalitaButtonProps {
   type?: 'button' | 'submit' | 'reset';
   loading?: boolean;
   style?: CSSProperties;
-  disabled?: boolean
+  disabled?: boolean;
+  orientation?: 'horizontal' | 'vertical';
 }
+
+const variantClasses: Record<string, string> = {
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  info: "btn-info",
+  success: "btn-success",
+  warning: "btn-warning",
+  danger: "btn-error",
+  link: "btn-link",
+  dark: "btn-neutral",
+  light: "btn-ghost",
+};
+
+const sizeClasses: Record<string, string> = {
+  small: "btn-sm",
+  normal: "",        // default
+  medium: "btn-md",
+  large: "btn-lg",
+};
 
 export default function NalitaButton(props: NalitaButtonProps) {
   const {
@@ -33,27 +52,41 @@ export default function NalitaButton(props: NalitaButtonProps) {
     type = "button",
     loading = false,
     style,
-    disabled
+    disabled,
+    orientation = 'horizontal'
   } = props;
 
-  const buttonClassName = [
-    'button',
-    variants[variant],
-    sizes[size],
-    rounded && 'is-rounded',
-    fullWidth && 'is-fullwidth',
-    outlined && 'is-outlined',
-    className,
-    loading && 'is-loading',
-    disabled && 'is-disabled'
-  ].join(' ');
+  const baseClasses = `
+    btn inline-flex items-center justify-center gap-2
+    ${variant === 'link' ? '' : variantClasses[variant]}
+    ${outlined ? 'btn-outline' : ''}
+    ${sizeClasses[size]}
+    ${fullWidth ? 'btn-block' : ''}
+    ${rounded ? 'rounded-full' : ''}
+    ${loading ? 'loading' : ''}
+    ${disabled ? 'btn-disabled' : ''}
+  `;
 
   return (
-    <button type={type} className={buttonClassName} style={style} onClick={onClick}>
-      {icon && <span className="icon mr-2">
-        {icon}
-      </span>}
-      <span>{label}</span>
+    <button
+      type={type}
+      className={`${baseClasses} ${className ?? ""}`}
+      style={style}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {orientation === 'horizontal' && (
+        <>
+          {icon && <span className="flex-shrink-0">{icon}</span>}
+          {label && <span>{label}</span>}
+        </>
+      )}
+      {orientation === 'vertical' && (
+        <div className="flex flex-col items-center justify-center gap-1">
+          {icon && <span>{icon}</span>}
+          {label && <span>{label}</span>}
+        </div>
+      )}
     </button>
   );
 }

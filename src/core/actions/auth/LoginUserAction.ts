@@ -1,6 +1,7 @@
-import { AuthTokenResponse } from "@/core/domain/auth/AuthTokenResponse";
+import { AuthTokenResponse } from "@/core/domain/entities/auth/AuthTokenResponse";
 import { Action } from "../common/Action";
-import { AuthService } from "@/core/domain/auth/AuthService";
+import { AuthRepository } from "@/core/domain/repositories/AuthRepository";
+
 
 interface LoginUserActionParams {
   email: string;
@@ -9,9 +10,9 @@ interface LoginUserActionParams {
 
 export class LoginUserAction implements Action<LoginUserActionParams, AuthTokenResponse> {
   constructor(
-    private readonly authService: AuthService
+    private readonly authRepository: AuthRepository
   ) { }
   execute(params: LoginUserActionParams): Promise<AuthTokenResponse> {
-    return this.authService.login(params);
+    return this.authRepository.login(params);
   }
 }

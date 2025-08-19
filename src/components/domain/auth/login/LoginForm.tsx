@@ -1,17 +1,23 @@
-'use client';
-import { useRouter } from "next/navigation";
+'use client'
+
+import NalitaIcon from "@/components/icons/NalitaIcon"
 import GoogleButton from "./GoogleButton";
 
-export default function LoginForm() {
-  const router = useRouter();
-
+export default function LoginPage() {
   return (
-    <div className="">
-      <img src="/img/icons/dog.svg" alt="dog" width={200} />
-      <h1 className="is-size-2 has-text-weight-extrabold has-text-nalita-dark mb-5">
-        Nalita
-      </h1>
-      <GoogleButton />
-    </div>
-  )
+    <main className="min-h-dvh relative flex items-start justify-center pt-42">
+
+      {/* Contenido */}
+      <section className="relative z-10 w-full max-w-md px-4 text-center">
+
+        {/*  icon with red stroke */}
+        <NalitaIcon className="mx-auto w-32 h-32 m-0 p-0" />
+        <h1 className="text-6xl font-bold text-[#6ec7a2]">Nalita</h1>
+        <div className="mt-6 flex justify-center">
+          <GoogleButton />
+        </div>
+
+      </section>
+    </main>
+  );
 }

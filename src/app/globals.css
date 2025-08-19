@@ -1,71 +1,19 @@
-@import url("bulma/css/versions/bulma-no-dark-mode.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
 
-:root {
-  --bulma-primary-h: 14deg;
-  --bulma-primary-s: 19%;
-  --bulma-primary-l: 51%;
-  --bulma-link-h: 242deg;
-  --bulma-link-s: 61%;
-  --bulma-link-l: 80%;
-  --bulma-info-h: 199deg;
-  --bulma-info-s: 80%;
-  --bulma-info-l: 75%;
-  --bulma-success-h: 114deg;
-  --bulma-success-s: 46%;
-  --bulma-success-l: 79%;
-  --bulma-warning-h: 0deg;
-  --bulma-warning-s: 76%;
-  --bulma-warning-l: 80%;
-
-  --nalita-light-color: #FAF0E6;
-  --nalita-middle-color: #CBA893;
-  --nalita-dark-color: #5D4037;
-
-  --nalita-font-family: 'Nunito', sans-serif;
+/* @plugin "daisyui" {
+  themes: light --default, dark --prefersdark, pastel;
 }
 
-/* helpers */
-.nalita-font-body {
-  font-family: var(--nalita-font-family);
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.nalita-font-brand {
-  font-family: var(--nalita-font-family);
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-}
-
-.has-text-nalita-light {
-  color: var(--nalita-light-color);
-}
-
-.has-text-nalita-middle {
-  color: var(--nalita-middle-color);
-}
-
-.has-text-nalita-dark {
-  color: var(--nalita-dark-color);
-}
-
-.has-background-nalita-light {
-  background-color: var(--nalita-light-color);
-}
-
-/* Generic CSS */
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background-color: var(--nalita-light-color);
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+@layer utilities {
+  :where(.btn) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+    border-radius: .7rem;
+    line-height: 1.2;
+    min-height: 2.5rem;
+  }
+} */

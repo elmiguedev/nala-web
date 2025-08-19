@@ -1,10 +1,10 @@
-import { AuthLoginParams } from "@/core/domain/auth/AuthLoginParams";
-import { AuthRegistrationParams } from "@/core/domain/auth/AuthRegistrationParams";
-import { AuthService } from "@/core/domain/auth/AuthService";
-import { AuthTokenResponse } from "@/core/domain/auth/AuthTokenResponse";
+import { AuthRepository } from "@/core/domain/repositories/AuthRepository";
 import { NalaApiConnector } from "../connector/NalaApiConnector";
+import { AuthLoginParams } from "@/core/domain/entities/auth/AuthLoginParams";
+import { AuthTokenResponse } from "@/core/domain/entities/auth/AuthTokenResponse";
+import { AuthRegisterParams } from "@/core/domain/entities/auth/AuthRegisterParams";
 
-export class NalaApiAuthService implements AuthService {
+export class NalaApiAuthRepository implements AuthRepository {
   private connector: NalaApiConnector = new NalaApiConnector();
 
   public async login(params: AuthLoginParams): Promise<AuthTokenResponse> {
@@ -15,7 +15,7 @@ export class NalaApiAuthService implements AuthService {
       refreshToken: response.refreshToken
     }
   }
-  public async register(params: AuthRegistrationParams): Promise<AuthTokenResponse> {
+  public async register(params: AuthRegisterParams): Promise<AuthTokenResponse> {
     const response = await this.connector.register(params);
     return {
       id: response.id,

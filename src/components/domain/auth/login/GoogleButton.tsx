@@ -18,20 +18,10 @@ export default function GoogleButton() {
   });
 
   return (
-    <NalitaButton
-      onClick={login}
-      label="Iniciar sesión con Google"
-      loading={loading}
-      disabled={loading}
-      icon={
-        <GoogleIcon />
-      }
-      style={{
-        backgroundColor: "white",
-        border: "2px solid #5D4037",
-        fontWeight: "bold"
-      }}
-    />
+    <button className="btn btn-lg bg-[#6ec7a2] text-white">
+      <GoogleIcon />
+      Iniciar sesión con Google
+    </button>
   )
 
 }
