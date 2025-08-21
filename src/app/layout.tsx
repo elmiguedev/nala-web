@@ -1,5 +1,5 @@
-import { GoogleOAuthProvider } from "@react-oauth/google";
-// import "./globals.css";
+import Providers from "@/components/config/Providers";
+import { SessionProvider } from "next-auth/react";
 import { Nunito } from "next/font/google";
 
 const nunito = Nunito({
@@ -20,9 +20,9 @@ export default function RootLayout({
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
       </head>
       <body className={`${nunito.className} font-sans`}>
-        <GoogleOAuthProvider clientId="167610543234-58fp4to44cq2m2fqpt0v4mqais8028ie.apps.googleusercontent.com">
+        <Providers>
           {children}
-        </GoogleOAuthProvider>
+        </Providers>
       </body>
     </html>
   );
