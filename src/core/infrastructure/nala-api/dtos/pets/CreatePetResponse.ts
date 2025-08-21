@@ -1,5 +1,5 @@
-import { Metadata } from "@/core/domain/common/Metadata";
-import { PetType } from "@/core/domain/pets/PetType";
+import { Metadata } from "@/core/domain/entities/common/Metadata";
+import { PetType } from "@/core/domain/entities/pets/PetType";
 
 export interface CreatePetResponse {
   id: string;

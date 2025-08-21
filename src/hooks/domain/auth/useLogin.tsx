@@ -1,4 +1,4 @@
-import { AuthLoginParams } from "@/core/domain/auth/AuthLoginParams";
+import { AuthLoginParams } from "@/core/domain/entities/auth/AuthLoginParams";
 import { useState } from "react";
 
 export default function useLogin() {

@@ -1,6 +1,7 @@
 'use client'
 
-import { Pet } from "@/core/domain/pets/Pet";
+import { Pet } from "@/core/domain/entities/pets/Pet";
+
 
 interface PetHeaderProps {
   pet: Pet

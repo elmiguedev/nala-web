@@ -1,4 +1,3 @@
-import { AuthLoginParams } from "@/core/domain/auth/AuthLoginParams";
 import { useState } from "react";
 
 export default function useLogout() {

@@ -1,12 +1,12 @@
-import { AuthRegistrationParams } from "@/core/domain/auth/AuthRegistrationParams";
-import { signIn } from "next-auth/react";
+
+import { AuthRegisterParams } from "@/core/domain/entities/auth/AuthRegisterParams";
 import { useState } from "react";
 
 export default function useRegister() {
   const [loading, setLoading] = useState(false);
   const url = "/api/auth/register";
 
-  const register = async (params: AuthRegistrationParams) => {
+  const register = async (params: AuthRegisterParams) => {
     try {
       setLoading(true);
       const response = await fetch(url, {

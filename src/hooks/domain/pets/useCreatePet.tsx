@@ -1,13 +1,11 @@
-import { AuthRegistrationParams } from "@/core/domain/auth/AuthRegistrationParams";
-import { PetCreationParams } from "@/core/domain/pets/PetCreationParams";
-import { signIn } from "next-auth/react";
+import { PetCreateParams } from "@/core/domain/entities/pets/PetCreateParams";
 import { useState } from "react";
 
 export default function useCreatePet() {
   const [loading, setLoading] = useState(false);
   const url = "/api/pets/new";
 
-  const createPet = async (params: PetCreationParams) => {
+  const createPet = async (params: PetCreateParams) => {
     try {
       setLoading(true);
       const response = await fetch(url, {

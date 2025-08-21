@@ -1,7 +1,7 @@
 'use client'
 
 import PawIcon from "@/components/icons/PawIcon";
-import { Pet } from "@/core/domain/pets/Pet";
+import { Pet } from "@/core/domain/entities/pets/Pet";
 import { useRouter } from "next/navigation";
 
 export interface PetSelectorProps {

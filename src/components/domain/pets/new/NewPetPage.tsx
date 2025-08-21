@@ -7,14 +7,14 @@ import NalitaPrimaryButton from "@/components/ui/buttons/NalitaPrimaryButton";
 import NalitaButtonSelector from "@/components/ui/input/NalitaButtonSelector";
 import { NalitaDatePicker } from "@/components/ui/input/NalitaDatePicker";
 import NalitaTextField from "@/components/ui/input/NalitaTextField";
-import { PetCreationParams } from "@/core/domain/pets/PetCreationParams";
-import { PetType } from "@/core/domain/pets/PetType";
+import { PetCreateParams } from "@/core/domain/entities/pets/PetCreateParams";
+import { PetType } from "@/core/domain/entities/pets/PetType";
 import useCreatePet from "@/hooks/domain/pets/useCreatePet";
 import { useState } from "react";
 
 export default function NewPetPage() {
   const { createPet, loading } = useCreatePet();
-  const [form, setForm] = useState<PetCreationParams>({
+  const [form, setForm] = useState<PetCreateParams>({
     birthdate: new Date(),
     name: "",
     type: "dog",

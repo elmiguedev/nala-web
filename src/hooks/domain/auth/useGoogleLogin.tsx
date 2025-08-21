@@ -1,5 +1,3 @@
-import { AuthLoginParams } from "@/core/domain/auth/AuthLoginParams";
-import { CredentialResponse } from "@react-oauth/google";
 import { useState } from "react";
 
 export default function useGoogleLogin() {
