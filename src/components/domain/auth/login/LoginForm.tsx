@@ -5,7 +5,7 @@ import GoogleButton from "./GoogleButton";
 
 export default function LoginPage() {
   return (
-    <main className="min-h-dvh relative flex items-start justify-center pt-42">
+    <main className="min-h-dvh relative flex items-start justify-center pt-30">
 
       {/* Contenido */}
       <section className="relative z-10 w-full max-w-md px-4 text-center">

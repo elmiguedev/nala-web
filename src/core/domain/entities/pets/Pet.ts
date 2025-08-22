@@ -4,6 +4,7 @@ import type { PetType } from "./PetType";
 export interface Pet {
   id: string;
   name: string;
+  imgUrl?: string;
   type: PetType;
   ownerId: string;
   birthdate: Date;

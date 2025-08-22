@@ -1,58 +1,44 @@
 'use client'
 
-import useLogout from "@/hooks/domain/auth/useLogout";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import PawIcon from "@/components/icons/PawIcon";
+import { signOut } from "next-auth/react";
 
 export default function NalitaNavbar() {
-  const { logout } = useLogout();
-  const router = useRouter();
-  const [isActive, setIsActive] = useState(false);
 
   const handleLogout = async () => {
-    await logout();
-    router.push("/login");
+    signOut();
   };
 
   return (
-    <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
-      <div className="container">
-        <div className="navbar-brand">
-          <a className="navbar-item is-flex is-align-items-center" href="/">
-            <img style={{ color: "white" }} src="/img/icons/paw.svg" height="40" />
-            <span className="nalita-font-brand has-text-nalita-light">
-              Nalita
-            </span>
-          </a>
-
-          {/* Hamburguesa con toggle */}
-          <a
-            role="button"
-            className={`navbar-burger ${isActive ? "is-active" : ""}`}
-            aria-label="menu"
-            aria-expanded={isActive}
-            onClick={() => setIsActive(!isActive)}
-            style={{ color: "white" }}
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        {/* Menú colapsable */}
-        <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a onClick={handleLogout} className="button is-outlined">
-                  <strong>Logout</strong>
-                </a>
-              </div>
+    <div className="navbar fixed z-10 bg-base-100 shadow-sm lg:px-30">
+      <div className="flex-1 ">
+        <a className="btn btn-ghost text-xl text-success ">
+          <PawIcon className="text-neutral" />
+          <span className="text-base-content">Nalita</span>
+        </a>
+      </div>
+      <div className="flex gap-2">
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
             </div>
           </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li>
+              <a className="justify-between">
+                Profile
+              </a>
+            </li>
+            {/* <li><a>Settings</a></li> */}
+            <li><a onClick={handleLogout}>Logout</a></li>
+          </ul>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

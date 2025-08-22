@@ -1,17 +1,21 @@
 import Providers from "@/components/config/Providers";
-import { SessionProvider } from "next-auth/react";
+import NalitaNavbar from "@/components/ui/navbar/NalitaNavbar";
 import { Nunito } from "next/font/google";
+import './globals.css'
+import { getServerSession } from "next-auth";
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en" data-theme="pastel">
       <head>
@@ -21,7 +25,10 @@ export default function RootLayout({
       </head>
       <body className={`${nunito.className} font-sans`}>
         <Providers>
-          {children}
+          {session && <NalitaNavbar />}
+          <div className="lg:px-30 pt-24 bg-base-200 min-h-screen">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>
