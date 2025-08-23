@@ -26,8 +26,10 @@ export default async function RootLayout({
       <body className={`${nunito.className} font-sans`}>
         <Providers>
           {session && <NalitaNavbar />}
-          <div className="lg:px-30 pt-24 bg-base-200 min-h-screen">
-            {children}
+          <div className="pt-28 bg-base-200 min-h-screen">
+            <div className="max-w-5xl mx-auto">
+              {children}
+            </div>
           </div>
         </Providers>
       </body>

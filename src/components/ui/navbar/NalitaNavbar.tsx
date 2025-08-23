@@ -2,6 +2,7 @@
 
 import PawIcon from "@/components/icons/PawIcon";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 export default function NalitaNavbar() {
 
@@ -10,12 +11,12 @@ export default function NalitaNavbar() {
   };
 
   return (
-    <div className="navbar fixed z-10 bg-base-100 shadow-sm lg:px-30">
+    <div className="navbar fixed top-6 left-1/2 -translate-x-1/2 z-10 w-[90%] max-w-5xl bg-base-100 shadow-lg rounded-3xl">
       <div className="flex-1 ">
-        <a className="btn btn-ghost text-xl text-success ">
+        <Link href="/" className="btn btn-ghost text-xl text-success ">
           <PawIcon className="text-neutral" />
           <span className="text-base-content">Nalita</span>
-        </a>
+        </Link>
       </div>
       <div className="flex gap-2">
         <div className="dropdown dropdown-end">
