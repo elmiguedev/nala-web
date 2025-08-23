@@ -21,3 +21,5 @@
   - podes seguir a dueños y podes seguir a pichis
   - los pichis pueden tener amigos pichis
   - como al principio no toods la van a usar, se podria scrapear de los sitios mas importantes cmoo patitas de perro o de lugares asi
+  - mucha gente usa whatsapp, podria integrarse con algo de eso tambien (deberia ser facil para la gente que no sabe usarlo, onda podria haber como un numero de whats para reportarlos y que automaticamente suba a la pagina
+  )

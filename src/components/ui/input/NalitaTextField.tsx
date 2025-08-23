@@ -1,38 +1,31 @@
-import { sizes, variants } from "../utils/BulmaUtils";
-
 interface NalitaTextField {
   type?: 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url' | 'color' | 'date' | 'datetime-local' | 'month' | 'time' | 'week';
-  size?: 'small' | 'normal' | 'medium' | 'large';
-  variant?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger';
   placeholder?: string;
+  label?: string;
   name?: string;
   value?: string;
+  className?: string;
+  helperText?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export default function NalitaTextField(props: NalitaTextField) {
   const {
     type = 'text',
-    size = 'normal',
-    variant = 'primary',
     placeholder,
+    label,
     name,
     value,
+    className,
+    helperText,
     onChange
   } = props
-  const inputClassName = `input ${sizes[size]} ${variants[variant]} nalita-font-body`;
+  const inputClassName = `input input-lg focus:outline-none focus:border-gray-400 ${className}`;
   return (
-    <div className="field">
-      <div className="control">
-        <input
-          value={value}
-          onChange={onChange}
-          className={inputClassName}
-          type={type}
-          placeholder={placeholder}
-          name={name}
-        />
-      </div>
-    </div>
+    <fieldset className="fieldset  ">
+      {label && <legend className="fieldset-legend text-lg">{label}</legend>}
+      <input type={type} className={inputClassName} placeholder={placeholder} name={name} value={value} onChange={onChange} />
+      {helperText && <p className="label ">{helperText}</p>}
+    </fieldset>
   )
 }
