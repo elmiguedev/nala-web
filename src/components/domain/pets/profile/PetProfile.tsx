@@ -11,9 +11,9 @@ export default function PetProfile(props: PetProfileProps) {
     <div>
 
       {/* Banner */}
-      <NalitaBanner
-
-      />
+      <pre>
+        {JSON.stringify(pet, null, 2)}
+      </pre>
 
     </div>
   );

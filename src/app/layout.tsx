@@ -23,10 +23,10 @@ export default async function RootLayout({
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
       </head>
-      <body className={`${nunito.className} font-sans`}>
+      <body className={`${nunito.className} font-sans bg-base-200`}>
         <Providers>
           {session && <NalitaNavbar />}
-          <div className="pt-28 bg-base-200 min-h-screen">
+          <div className="py-12  min-h-screen">
             <div className="max-w-5xl mx-auto">
               {children}
             </div>
