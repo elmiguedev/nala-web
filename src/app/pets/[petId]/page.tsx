@@ -2,13 +2,9 @@ import PetProfile from "@/components/domain/pets/profile/PetProfile"
 import PetProfilePage from "@/components/domain/pets/profile/PetProfilePage"
 import { Pet } from "@/core/domain/entities/pets/Pet"
 
-type PageProps = {
-  params: {
-    petId: string
-  }
-}
 
-export default function Page({ params }: PageProps) {
+
+export default function Page() {
   const pet: Pet = {
     id: "1",
     birthdate: new Date(),
