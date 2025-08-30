@@ -12,7 +12,7 @@ export default function CheckupsSection(props: CheckupsSectionProps) {
   const { checkups } = props;
   return (
     <div className="flex flex-col gap-4">
-      <NalitaSectionTitle title="Checkups" />
+      <NalitaSectionTitle title="Consultas" />
       <CheckupList checkups={checkups} />
     </div>
   );

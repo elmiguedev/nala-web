@@ -1,4 +1,3 @@
-// src/components/pets/checkups/CheckupItem.tsx
 import { useState, useMemo } from "react";
 import { PetCheckup } from "@/core/domain/entities/pets/PetCheckup";
 import { toDateFormat } from "@/utils/DateUtils";
@@ -10,7 +9,6 @@ export interface CheckupItemProps {
 };
 
 export default function CheckupItem({ checkup, onDetails }: CheckupItemProps) {
-  const [open, setOpen] = useState(false);
 
   return (
     <NalitaCard>
