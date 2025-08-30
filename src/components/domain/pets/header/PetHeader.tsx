@@ -4,6 +4,8 @@ import { LuCalendarDays } from "react-icons/lu";
 import { Pet } from "@/core/domain/entities/pets/Pet";
 import NalitaBanner from "@/components/ui/banners/NalitaBanner";
 import PetHeaderMenuButton from "./PetHeaderMenuButton";
+import { CiPill } from "react-icons/ci";
+import { TbVaccine } from "react-icons/tb";
 
 
 export interface PetHeaderProps {
@@ -20,10 +22,17 @@ export default function PetHeader(props: PetHeaderProps) {
       avatarUrl={DogImage}
     >
       <PetHeaderMenuButton
-        href={`/pets/${pet.id}/health`}
+        href={`/pets/${pet.id}/checkups`}
         icon={<TbHealthRecognition size={40} />}
-        label="Salud"
+        label="Consultas"
         backgroundColor="#FCEFE6"
+      />
+
+      <PetHeaderMenuButton
+        href={`/pets/${pet.id}/applications`}
+        icon={<TbVaccine size={40} />}
+        label="Aplicaciones"
+        backgroundColor="#FBF3D5"
       />
 
       <PetHeaderMenuButton

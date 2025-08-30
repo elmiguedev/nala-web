@@ -1,0 +1,1 @@
+export type PetDiaryStatus = "pending" | "done" | "skipped" | "canceled";

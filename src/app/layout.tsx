@@ -27,7 +27,7 @@ export default async function RootLayout({
         <Providers>
           {session && <NalitaNavbar />}
           <div className="py-12  min-h-screen">
-            <div className="max-w-5xl mx-auto">
+            <div className=" mx-auto max-w-3xl lg:max-w-5xl">
               {children}
             </div>
           </div>

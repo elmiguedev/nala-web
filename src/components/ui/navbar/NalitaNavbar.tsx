@@ -11,7 +11,7 @@ export default function NalitaNavbar() {
   };
 
   return (
-    <div className="navbar relative top-6 left-1/2 -translate-x-1/2 z-10 w-[90%] max-w-5xl bg-base-100 shadow-lg rounded-3xl">
+    <div className="navbar relative top-6 left-1/2 -translate-x-1/2 z-10  max-w-3xl lg:max-w-5xl bg-base-100 shadow-lg rounded-3xl">
       <div className="flex-1 ">
         <Link href="/" className="btn btn-ghost text-xl text-success ">
           <PawIcon className="text-neutral" />

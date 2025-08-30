@@ -1,0 +1,1 @@
+export type PetDiaryType = "checkup" | "dose" | "other";

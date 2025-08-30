@@ -1,7 +1,4 @@
-import PetProfile from "@/components/domain/pets/profile/PetProfile"
-import PetProfilePage from "@/components/domain/pets/profile/PetProfilePage"
 import { Pet } from "@/core/domain/entities/pets/Pet"
-
 
 
 export default function Page() {
@@ -13,9 +10,9 @@ export default function Page() {
     type: "dog"
   }
   return (
-    <PetProfile
-      pet={pet}
-    />
+    <div>
+
+    </div>
   )
 
 }
