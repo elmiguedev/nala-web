@@ -39,8 +39,8 @@ export default async function AppPage() {
         </div>
       </NalitaSection>
       <NalitaSection title="Adopciones" icon={"♥️"}>
-        <div className="grid grid-cols-4 gap-5">
-          <div className="card bg-base-100 shadow-md rounded-lg w-72">
+        <div className="grid grid-cols-3 gap-5">
+          <div className="card bg-base-100 shadow-md rounded-lg">
             <figure>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOYCl1QbGgysxkaRxpFuZtGzIwJK0_qyvYsA&s"
@@ -58,7 +58,7 @@ export default async function AppPage() {
             </div>
           </div>
 
-          <div className="card bg-base-100 shadow-md rounded-lg w-72">
+          <div className="card bg-base-100 shadow-md rounded-lg">
             <figure>
               <img
                 src="https://http2.mlstatic.com/D_935625-MLA78317230481_082024-O.jpg"
@@ -76,7 +76,7 @@ export default async function AppPage() {
             </div>
           </div>
 
-          <div className="card bg-base-100 shadow-md rounded-lg w-72">
+          <div className="card bg-base-100 shadow-md rounded-lg">
             <figure>
               <img
                 src="https://http2.mlstatic.com/D_NQ_NP_827839-MLA48347138011_112021-O.webp"

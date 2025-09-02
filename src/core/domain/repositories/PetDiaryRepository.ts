@@ -1,6 +1,5 @@
-import { PetDiaryEvent } from "../entities/diary/PetDiaryEvent";
-import { PetDiaryQueryParams } from "../entities/diary/PetDiaryQueryParams";
+import { PetDiaryEvent } from "../entities/pets/PetDiary";
 
 export interface PetDiaryRepository {
-  get(params: PetDiaryQueryParams): Promise<PetDiaryEvent[]>
+  get(params: any): Promise<PetDiaryEvent[]>
 }
